@@ -48,10 +48,10 @@ $(INSTALL_FOLDER):
 	mkdir -p $@
 
 $(SDL_SHARED_INSTALL): $(SDL_SHARED) | $(INSTALL_FOLDER)
-	$(CMAKE) --install $(SDL_BUILD_FOLDER) --config Release --prefix $(INSTALL_FOLDER)
+	$(CMAKE) --install $(SDL_BUILD_FOLDER) --prefix $(INSTALL_FOLDER)
 
 $(SDL_SHARED): $(SDL_MAKEFILE)
-	$(CMAKE) --build $(SDL_BUILD_FOLDER) --config Release --parallel
+	$(CMAKE) --build $(SDL_BUILD_FOLDER) --parallel
 
 $(SDL_MAKEFILE): $(SDL_CMAKELISTS)
 	$(CMAKE) -S $(SDL_FOLDER) -B $(SDL_BUILD_FOLDER)
